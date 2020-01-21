@@ -53,7 +53,6 @@ RUN mkdir -p /opt/rAthena \
 
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY accountsandchars.sql /root/
-COPY gab_npc.txt /opt/rAthena/npc/custom/
 
 EXPOSE 6900/tcp 6121/tcp 5121/tcp
 
