@@ -22,6 +22,7 @@ check_database_exist () {
 
 setup_init () {
     if ! [ -z "${SET_MOTD}" ]; then echo -e "${SET_MOTD}" > /opt/rAthena/conf/motd.txt; fi
+    setup_subnets
     # setup_mysql_config
     # setup_config
 }
@@ -94,6 +95,14 @@ setup_mysql_config () {
     fi
 }
 
+setup_subnets () {
+    if ! [ -z "${ADD_SUBNET_MAP1}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP1}" >> /opt/rAthena/conf/subnet_athena.conf; fi
+    if ! [ -z "${ADD_SUBNET_MAP2}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP2}" >> /opt/rAthena/conf/subnet_athena.conf; fi
+    if ! [ -z "${ADD_SUBNET_MAP3}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP3}" >> /opt/rAthena/conf/subnet_athena.conf; fi
+    if ! [ -z "${ADD_SUBNET_MAP4}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP4}" >> /opt/rAthena/conf/subnet_athena.conf; fi
+    if ! [ -z "${ADD_SUBNET_MAP5}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP5}" >> /opt/rAthena/conf/subnet_athena.conf; fi
+}
+
 setup_config () {
     if ! [ -z "${SET_INTERSRV_USERID}" ]; then 
         echo -e "userid: ${SET_INTERSRV_USERID}" >> /opt/rAthena/conf/import/map_conf.txt
@@ -108,11 +117,6 @@ setup_config () {
     if ! [ -z "${SET_CHAR_PUBLIC_IP}" ]; then echo -e "char_ip: ${SET_CHAR_PUBLIC_IP}" >> /opt/rAthena/conf/import/char_conf.txt; fi
     if ! [ -z "${SET_MAP_TO_CHAR_IP}" ]; then echo -e "char_ip: ${SET_MAP_TO_CHAR_IP}" >> /opt/rAthena/conf/import/map_conf.txt; fi
     if ! [ -z "${SET_MAP_PUBLIC_IP}" ]; then echo -e "map_ip: ${SET_MAP_PUBLIC_IP}" >> /opt/rAthena/conf/import/map_conf.txt; fi
-    if ! [ -z "${ADD_SUBNET_MAP1}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP1}" >> /opt/rAthena/conf/subnet_athena.conf; fi
-    if ! [ -z "${ADD_SUBNET_MAP2}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP2}" >> /opt/rAthena/conf/subnet_athena.conf; fi
-    if ! [ -z "${ADD_SUBNET_MAP3}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP3}" >> /opt/rAthena/conf/subnet_athena.conf; fi
-    if ! [ -z "${ADD_SUBNET_MAP4}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP4}" >> /opt/rAthena/conf/subnet_athena.conf; fi
-    if ! [ -z "${ADD_SUBNET_MAP5}" ]; then echo -e "subnet: ${ADD_SUBNET_MAP5}" >> /opt/rAthena/conf/subnet_athena.conf; fi
 
     if ! [ -z "${SET_SERVER_NAME}" ]; then echo -e "server_name: ${SET_SERVER_NAME}" >> /opt/rAthena/conf/import/char_conf.txt; fi
     if ! [ -z "${SET_MAX_CONNECT_USER}" ]; then echo -e "max_connect_user: ${SET_MAX_CONNECT_USER}" >> /opt/rAthena/conf/import/char_conf.txt; fi
