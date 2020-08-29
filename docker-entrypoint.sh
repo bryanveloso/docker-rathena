@@ -136,7 +136,7 @@ cd /opt/rAthena
 if ! [ -z ${DOWNLOAD_OVERRIDE_CONF_URL} ]; then 
     wget -q ${DOWNLOAD_OVERRIDE_CONF_URL} -O /tmp/rathena_import_conf.zip
     if [ $? -eq 0 ]; then
-        unzip /tmp/rathena_import_conf.zip -d /opt/rAthena/conf/import/
+        unzip -o /tmp/rathena_import_conf.zip -d /opt/rAthena/conf/import/
         if ! [ $? -eq 0 ]; then
             setup_init
         fi
