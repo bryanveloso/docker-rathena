@@ -38,7 +38,7 @@ RUN mkdir -p /opt/rAthena \
     && make clean \
     && make server \
     && chmod a+x login-server && chmod a+x char-server && chmod a+x map-server \
-    && apk del git make gcc g++ mariadb-dev zlib-dev pcre-dev libressl-dev
+    && apk del git make gcc g++ mariadb-dev zlib-dev pcre-dev libressl-dev \
     && mkdir -p /opt/rAthena/conf/import
 
 COPY docker-entrypoint.sh /usr/local/bin/
