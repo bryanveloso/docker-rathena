@@ -22,8 +22,8 @@ check_database_exist () {
 
 setup_init () {
     if ! [ -z "${SET_MOTD}" ]; then echo -e "${SET_MOTD}" > /opt/rAthena/conf/motd.txt; fi
-    setup_mysql_config
-    setup_config
+    # setup_mysql_config
+    # setup_config
 }
 
 setup_mysql_config () {
